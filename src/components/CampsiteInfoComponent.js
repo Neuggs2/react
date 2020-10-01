@@ -120,13 +120,13 @@ function RenderCampsite({campsite}) {
     );
 }
 
-function RenderComments({comments, addComment, campsiteId}) {
+function RenderComments({comments, postComment, campsiteId}) {
     if(comments) {
         return (
             <div className='col-md-5 m-1'>
                 <h4>Comments</h4>
                 {comments.map(comments => <div key={comments.id}><div>{comments.text}</div><p>-- {comments.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}</p></div>)}
-                <CommentForm campsiteId={campsiteId} addComment={addComment} />
+                <CommentForm campsiteId={campsiteId} postComment={postComment} />
             </div>
         );
     }
